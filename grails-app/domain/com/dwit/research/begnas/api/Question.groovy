@@ -1,11 +1,20 @@
 package com.dwit.research.begnas.api
 
 class Question {
-    
 
-    String Question
+    String question
     Boolean isSkipped = false
-	
-    static constraints = {
+
+    static hasMany = [options: Options]
+    //Boolean enabled
+
+    static constraints={
+        question(nullable: false, unique: true)
+        isSkipped()
     }
+
+    String toString(){
+        return "${question}"
+    }
+
 }
