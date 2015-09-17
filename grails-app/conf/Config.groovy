@@ -135,9 +135,22 @@ grails.plugin.springsecurity.securityConfigType = "InterceptUrlMap"
 ]*/
 grails.plugin.springsecurity.interceptUrlMap = [
         '/':                ['IS_AUTHENTICATED_FULLY'],
+        '/assets*//**':       ['permitAll'],
+        '*//**//*js*//**':        ['permitAll'],
+        '*//**//*css*//**':       ['permitAll'],
+        '*//**//*images*//**':    ['permitAll'],
+        '*//**//*favicon.ico':  ['permitAll'],
+        '/plugins/**':      ['permitAll'],
+
         '/login':           ['permitAll'],
         '/login/**':        ['permitAll'],
+        '/register/':       ['permitAll'],    //TODO:- need to change this
+        '/register/**':     ['permitAll'],    //TODO:- need to change this
         '/logout':          ['permitAll'],
         '/logout/**':       ['permitAll'],
-        '/options/**':      ['ROLE_ADMIN']
+        '/options/**':      ['ROLE_ADMIN'],
 ]
+
+grails.plugin.springsecurity.auth.loginFormUrl = '/login/'
+grails.plugin.springsecurity.logout.afterLogoutUrl='/login/'
+grails.plugin.springsecurity.ui.register.postRegisterUrl = '/register/registrationMessage'

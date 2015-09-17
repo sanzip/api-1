@@ -76,5 +76,9 @@ grails.project.dependency.resolution = {
 
         //spring security
         compile ':spring-security-core:2.0-RC5'
+        compile ":spring-security-ui:1.0-RC2"
+
+        //deps for spring security ui
+        compile ":famfamfam:1.0.1"
     }
 }
